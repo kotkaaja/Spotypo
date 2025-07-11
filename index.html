@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotypo - Buat Yang Suka Typo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-black text-zinc-300">
+
+    <div id="app-container">
+        <header id="top-bar">
+            <div class="header-left">
+                <i class="fab fa-spotify text-green-500"></i>
+                <h1 class="text-green-500">Spotypo</h1>
+            </div>
+            <div class="header-center">
+                <div class="header-nav-buttons">
+                    <a href="#" id="home-btn" title="Beranda"><i class="fa-solid fa-house"></i></a>
+                    <a href="#" id="search-btn" title="Cari"><i class="fa-solid fa-magnifying-glass"></i></a>
+                </div>
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Cari lagu atau artis...">
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="btn-premium">Jelajahi Premium</button>
+                <button id="user-account-btn" class="btn-user"><i class="fa-solid fa-user"></i></button>
+            </div>
+        </header>
+
+        <div id="app-main-content" class="flex p-2 gap-2">
+            <aside class="w-[350px] flex flex-col gap-2 flex-shrink-0">
+                <div id="library-container" class="bg-card rounded-lg flex-1 flex flex-col p-4">
+                    <div class="flex justify-between items-center mb-4 flex-shrink-0">
+                        <h2 class="text-lg font-bold flex items-center gap-2"><i class="fa-solid fa-layer-group"></i> Koleksi Kamu</h2>
+                        <button id="create-playlist-btn" class="text-2xl hover:bg-zinc-800 rounded-full w-8 h-8">+</button>
+                    </div>
+                    <div id="user-playlists-container" class="flex-1 overflow-y-auto scrollbar-hide">
+                        </div>
+                    <p class="text-xs mt-4 flex-shrink-0">Pengguna: <span id="username-display" class="font-bold"></span></p>
+                </div>
+            </aside>
+
+            <main class="flex-1 bg-card rounded-lg overflow-y-auto scrollbar-hide p-6">
+                <div class="flex items-center gap-2 mb-6">
+                    <button class="filter-pill active">Semua</button>
+                    <button class="filter-pill">Musik</button>
+                    <button class="filter-pill">Podcast</button>
+                </div>
+                <div id="main-content">
+                    <h2 id="main-content-title" class="text-3xl font-bold text-white mb-6">Lagu untukmu</h2>
+                    <div id="song-card-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                        </div>
+                </div>
+            </main>
+
+            <aside id="right-sidebar" class="w-[350px] bg-card rounded-lg p-4 hidden flex-col flex-shrink-0">
+                <h2 class="text-xl font-bold text-white mb-4">Tentang Artis</h2>
+                <div id="right-sidebar-content" class="text-center">
+                    <p>Pilih lagu untuk melihat info.</p>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <footer id="footer-player">
+        <div class="w-1/4 flex items-center gap-4">
+            <img id="footer-cover" src="https://picsum.photos/seed/placeholder/64" class="w-16 h-16 rounded-md">
+            <div>
+                <p id="footer-title" class="font-bold text-white">Pilih Lagu</p>
+                <p id="footer-artist" class="text-sm">...</p>
+            </div>
+            <button id="like-btn" class="text-zinc-400 hover:text-white ml-4"><i class="far fa-heart text-xl"></i></button>
+        </div>
+        <div class="w-2/4 flex flex-col items-center gap-2">
+            <div class="flex items-center gap-6">
+                <button id="prev-btn" class="text-zinc-400 hover:text-white"><i class="fa-solid fa-backward-step text-xl"></i></button>
+                <button id="play-pause-btn" class="bg-white text-black p-3 rounded-full hover:scale-105 w-10 h-10 flex items-center justify-center"><i id="play-icon" class="fa-solid fa-play text-lg"></i></button>
+                <button id="next-btn" class="text-zinc-400 hover:text-white"><i class="fa-solid fa-forward-step text-xl"></i></button>
+            </div>
+            <div class="w-full max-w-xl flex items-center gap-2 text-xs">
+                <span id="current-time">0:00</span>
+                <input type="range" id="progress-slider" class="w-full">
+                <span id="duration">0:00</span>
+            </div>
+        </div>
+        <div class="w-1/4 flex items-center justify-end gap-3">
+            <button id="add-to-playlist-btn" title="Tambah ke Playlist"><i class="fa-solid fa-plus text-lg"></i></button>
+            <i class="fa-solid fa-volume-high"></i>
+            <input type="range" id="volume-slider">
+        </div>
+    </footer>
+
+    <div id="modal-container" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50">
+        <div class="bg-zinc-800 p-6 rounded-lg w-full max-w-sm">
+            <h3 class="font-bold text-lg mb-4 text-white">Tambahkan ke Playlist</h3>
+            <ul id="modal-playlist-list" class="flex flex-col gap-2"></ul>
+            <button id="modal-close-btn" class="mt-6 w-full bg-zinc-600 py-2 rounded-lg hover:bg-zinc-700">Tutup</button>
+        </div>
+    </div>
+
+    <div id="create-playlist-modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50">
+        <div class="bg-zinc-800 p-8 rounded-lg w-full max-w-sm flex flex-col gap-4">
+            <h3 class="font-bold text-2xl text-white">Buat Playlist Baru</h3>
+            <input type="text" id="new-playlist-name" placeholder="Nama playlist..." class="w-full p-3 rounded-md bg-zinc-700 text-white border border-transparent focus:border-white focus:outline-none">
+            <div class="flex justify-end gap-4 mt-4">
+                <button id="create-playlist-cancel-btn" class="font-bold py-2 px-6 rounded-full hover:bg-zinc-700">Batal</button>
+                <button id="create-playlist-save-btn" class="bg-green-500 text-black font-bold py-2 px-6 rounded-full hover:scale-105">Simpan</button>
+            </div>
+        </div>
+    </div>
+
+    <audio id="audio-player"></audio>
+
+    <script src="js/song-database.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/playlist.js"></script>
+    <script src="js/search.js"></script>
+
+</body>
+</html>
