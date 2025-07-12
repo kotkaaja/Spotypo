@@ -114,15 +114,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const card = document.createElement('div');
             card.className = "song-card";
             card.innerHTML = `
-                <div class="relative">
-                    <img src="${song.cover}" class="w-full h-auto rounded-md mb-4 aspect-square object-cover">
-                    <div class="play-button-overlay">
-                        <i class="fa-solid fa-play text-black text-2xl"></i>
-                    </div>
-                </div>
-                <h3 class="font-bold text-white truncate">${song.title}</h3>
-                <p class="text-sm text-zinc-400 mt-1">${song.artist}</p>
-            `;
+    <div class="relative mb-4">
+        <img src="${song.cover}" class="w-full h-auto rounded-md aspect-square object-cover">
+        <div class="play-button-overlay">
+            <i class="fa-solid fa-play text-black"></i>
+        </div>
+    </div>
+    <h3 class="font-bold text-white truncate">${song.title}</h3>
+    <p class="text-sm text-zinc-400 mt-1">${song.artist}</p>
+`;
+
+
             card.addEventListener('click', () => {
                 App.playFromList(song.id, songList);
             });
