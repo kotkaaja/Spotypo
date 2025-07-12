@@ -47,9 +47,3 @@ Proyek ini tidak memerlukan *build step* yang rumit karena menggunakan CDN Tailw
     Buka file `index.html` langsung di browser pilihan Anda (misalnya Chrome, Firefox, atau Edge).
 
     Untuk pengalaman terbaik dan menghindari masalah terkait CORS, disarankan untuk menjalankannya menggunakan *server* lokal. Jika Anda menggunakan Visual Studio Code, Anda bisa menginstal ekstensi **[Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)** dan klik "Go Live" di pojok kanan bawah editor Anda.
-
----
-
-## 🤝 Kontribusi
-
-Kontribusi, isu, dan permintaan fitur sangat diterima! Jangan ragu untuk melakukan *fork* pada repositori ini dan membuat *pull request* Anda.
