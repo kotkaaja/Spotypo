@@ -2,7 +2,7 @@
 
 Spotypo adalah proyek *front-end* yang dibuat untuk mereplikasi tampilan dan nuansa antarmuka pengguna (UI) dari aplikasi desktop Spotify. Proyek ini dibangun dengan **HTML**, **CSS**, dan **JavaScript** murni, dengan bantuan *framework* **Tailwind CSS** untuk *styling* yang cepat dan responsif.
 
-![Screenshot Proyek Spotypo](https://od.lk/s/ODVfNzI1MzU0MDhf/Screenshot.png)
+![Screenshot Proyek Spotypo](https://od.lk/s/ODVfNzI1NDI2MDVf/ss.png)
 
 ---
 
