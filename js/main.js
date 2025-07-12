@@ -150,9 +150,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
                 
-                <div class="view-controls">
-                    <button id="view-play-btn" class="play-btn-green"><i class="fa-solid fa-play"></i></button>
-                    <button id="view-shuffle-btn" class="icon-btn-secondary"><i class="fa-solid fa-shuffle"></i></button>
+                <div class="view-controls flex items-center gap-6 mb-6">
+                    <button id="view-play-btn" class="bg-green-500 text-black rounded-full w-16 h-16 flex items-center justify-center hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-play text-2xl ml-1"></i>
+                    </button>
+                    <button id="view-shuffle-btn" class="text-zinc-400 hover:text-white text-4xl transition-colors">
+                        <i class="fa-solid fa-shuffle"></i>
+                    </button>
                 </div>
 
                 <table class="w-full text-left">
@@ -214,9 +218,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
 
-                <div class="view-controls">
-                    <button id="view-play-btn" class="play-btn-green"><i class="fa-solid fa-play"></i></button>
-                    <button id="view-shuffle-btn" class="icon-btn-secondary"><i class="fa-solid fa-shuffle"></i></button>
+                <div class="view-controls flex items-center gap-6 mb-6">
+                    <button id="view-play-btn" class="bg-green-500 text-black rounded-full w-16 h-16 flex items-center justify-center hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-play text-2xl ml-1"></i>
+                    </button>
+                    <button id="view-shuffle-btn" class="text-zinc-400 hover:text-white text-4xl transition-colors">
+                        <i class="fa-solid fa-shuffle"></i>
+                    </button>
                 </div>
 
                 <table class="w-full text-left">
